@@ -11,63 +11,27 @@
     ">Show Quantity</button>
   
   <button onclick="
-    if(cart_quantity > 10) {
-      console.log('The cart is full and dont update the cart.');
-    }
-    else {
-      cart_quantity++;
-      console.log(`Cart Quantity: ${cart_quantity}`);
-    }
+    updateCartQuantity(1);
   ">Add to Cart</button>
 
   <button onclick="
-    if(cart_quantity > 8) {
-      console.log('The cart is full and dont update the cart.');
-    }
-    else {
-      cart_quantity +=2;
-      console.log(`Cart Quantity: ${cart_quantity}`);
-    }
+    updateCartQuantity(2);
   ">+2</button>
 
   <button onclick="
-    if(cart_quantity > 7) {
-      console.log('The cart is full and dont update the cart.');
-    }
-    else {
-      cart_quantity +=3;
-      console.log(`Cart Quantity: ${cart_quantity}`);
-    }
+    updateCartQuantity(3);
   ">+3</button>
 
   <button onclick="
-    if(cart_quantity < 0) {
-      console.log('Not enough items in the cart and dont update the cart.');
-    }
-    else {
-      cart_quantity--;
-      console.log(`Cart Quantity: ${cart_quantity}`);
-    }
+    updateCartQuantity(-1);
   ">Remove from cart</button>
 
   <button onclick="
-    if(cart_quantity < 2) {
-      console.log('Not enough items in the cart and dont update the cart.');
-    }
-    else {
-      cart_quantity -= 2;
-      console.log(`Cart Quantity: ${cart_quantity}`);
-    }
+    updateCartQuantity(-2);
   ">-2</button>
 
   <button onclick="
-    if(cart_quantity < 3) {
-      console.log('Not enough items in the cart and dont update the cart.');
-    }
-    else {
-      cart_quantity -= 3;
-      console.log(`Cart Quantity: ${cart_quantity}`);
-    }
+    updateCartQuantity(-3);
   ">-3</button>
 
   <button onclick="
@@ -79,6 +43,21 @@
 
   <script>
     let cart_quantity = 0;
+
+    function updateCartQuantity(value) {
+      if(cart_quantity + value > 10) {
+        alert('The cart is full.');
+        return;
+      }
+      else if(cart_quantity + value < 0) {
+        alert('Not enough items in the cart.');
+        return;
+      }
+      else {
+        cart_quantity += value;
+        console.log(`Cart quantity: ${cart_quantity}`)
+      }
+    }
 
   </script>
 </body>

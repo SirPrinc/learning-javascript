@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object Exercise</title>
+</head>
+<body>
+  <script>
+
+    const basketball = {
+      name: 'basketball',
+      price: 2095,
+      'delivery-time': '3 Days'
+    };
+
+    const shirt = {
+      name: 'shirt',
+      price: 300,
+      'delivery-time': '4 Days'
+    };
+
+    function comparePrice(product1, product2) {
+      if(product1['price'] > product2['price']) {
+        console.log('Product 2 is less expensive');
+      }
+      else {
+        console.log('Product 1 is less expensive');
+      }
+    };
+
+    comparePrice(shirt, basketball);
+
+  </script>
+</body>
+</html>
