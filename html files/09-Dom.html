@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document Object Model.</title>
+</head>
+<body>
+  <button>hello</button>
+
+  <button class="second-button">Second Button</button>
+
+
+  <script>
+    console.log(document.querySelector('button').innerHTML);
+
+    document.querySelector('button').innerHTML = 'new text';
+
+    const buttonElement =  document.querySelector('.second-button');
+    console.log(buttonElement);
+
+    // console.log(document.title);
+    // document.title = 'Changed';
+
+    // console.log(document.body);
+
+    // document.body.innerHTML = '<button>Good Job</button>';
+
+    // DOM - combines the HTML and Js
+
+
+    // document.body.innerHTML = 'hello';
+    // document.title = 'Good Job';
+  </script>
+</body>
+</html>

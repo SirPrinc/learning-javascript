@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6a and 6b Exercise</title>
+</head>
+<body>
+  <button onclick="
+    playGame('heads');
+  ">heads</button>
+
+  <button onclick="
+    playGame('tails');
+  ">tails</button>
+
+  <button onclick="
+    alert(`Wins: ${score.wins}, Losses: ${score.losses}`);
+  ">Display Score</button>
+
+  <button onclick="
+    score.losses = 0;
+    score.wins = 0;
+    localStorage.removeItem('score');
+  ">Reset Score</button>
+
+  <script>
+    let score = JSON.parse(localStorage.getItem('score'));
+
+    function playGame(playermove) {
+      const randomNumber = Math.random();
+
+      let result = '';
+      if(randomNumber <= 0.5) {
+        result = 'heads';
+      }
+      else {
+        result = 'tails';
+      }
+
+      const message = playermove === result ? 'You win dummy' : 'You lose';
+      console.log(`Your guess is ${playermove} and the result is ${result} so ${message}`);
+
+      if(message === 'You win dummy') {
+        score.wins += 1;
+      }
+      else {
+        score.losses += 1;
+      }
+
+      localStorage.setItem('score', JSON.stringify(score));
+    }    
+
+    
+  </script>
+</body>
+</html>
