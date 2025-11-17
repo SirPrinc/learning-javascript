@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Projects</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .subscribe-button {
+      border: none;
+      background-color: black;
+      color: white;
+      padding: 10px;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 30px;
+    }
+
+    .is-subscribed {
+      background-color: gray;
+      color: black;
+    }
+
+    .cost-input {
+      font-size: 15px;
+      padding: 10px;
+    }
+
+    .calculate-button {
+      background-color: green;
+      border: none;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <p>Youtube Subscribe Button</p>
+  <button onclick="
+    subscribe()
+  " class="js-subscribe-button subscribe-button">Subscribe</button>
+
+  <hr>
+
+  <p>Amazon Shipping Calculator</p>
+
+  <p>Orders under $40 = +$10 shipping.</p>
+
+  <p>Orders over $40 = FREE shipping.</p>
+
+  <input type="number" name="total" id="total-amount" placeholder="Cost of Order" class="cost-input">
+  <button onclick="
+    displayTotalAmount();
+  " class="calculate-button">Calculate</button>
+
+  <p class="show-result"></p>
+
+  <script>
+    function subscribe() {
+      const buttonElemtent = document.querySelector('.js-subscribe-button');
+    
+      if(buttonElemtent.innerText === 'Subscribe') {
+        buttonElemtent.innerText = 'Subscribed';
+        buttonElemtent.classList.add('is-subscribed');
+      }
+      else {
+        buttonElemtent.innerText = 'Subscribe';
+        buttonElemtent.classList.remove('is-subscribed');
+      }
+    }
+
+
+    function displayTotalAmount() {
+      const totalAmount = document.querySelector('#total-amount').value;
+      
+      if(totalAmount < 40) {
+        document.querySelector('.show-result').innerHTML = `Total Amount: $${parseInt(totalAmount) + 10}`;
+      }
+      else {
+        document.querySelector('.show-result').innerHTML = `Total Amount: $${totalAmount}`;
+      }
+    }
+
+  </script>
+</body>
+</html>

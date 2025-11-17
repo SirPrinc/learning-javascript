@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Calculator</title>
 </head>
-<body>
+<body onload="document.querySelector('.expression').innerHTML = `Expression: ${calculation}`;">
   <p>
     <button onclick="
       updateCalculation('1');
@@ -77,23 +77,43 @@
 
   <p>
     <button onclick="
-      result = eval(calculation);
-      console.log(`${calculation} = ${result}`);
+      obtainResult();
       ">=
     </button>
 
     <button onclick="
-      updateCalculation('');
-      ">Del
+      calculation = calculation.slice(0,-1);
+      clearAndDel();
+      " class="delButton">Del
     </button>
+
+    <button onclick="
+      calculation = '';
+      clearAndDel();
+    ">Clear</button>
   </p>
 
+  <p class="expression"></p>
+
+  <p class="calc-answer"></p>
+
   <script>
-    let calculation = '';
+    let calculation = localStorage.getItem('calculation') || '';
 
     function updateCalculation(value) {
       calculation += value;
-      console.log(calculation);
+      document.querySelector('.expression').innerHTML = `Expression: ${calculation}`;
+      localStorage.setItem('calculation', calculation);
+
+    }
+
+    function obtainResult() {
+      result = eval(calculation);
+      document.querySelector('.calc-answer').innerHTML = `Calculations: ${calculation} = ${result}`;
+    }
+
+    function clearAndDel() {
+      document.querySelector('.expression').innerHTML = `Expression: ${calculation}`;
     }
 
   </script>

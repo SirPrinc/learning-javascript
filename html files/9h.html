@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Projects</title>
+</head>
+<body>
+  <input type="text" class="random-input" onkeyup="
+    displayText(event);
+  ">
+
+  <p class="display-ontype"></p>
+  <script>
+    textToDisplay = ''
+    function displayText(event) {
+      const text = event.key;
+      if(text === 'Backspace') {
+        if(!textToDisplay) {
+          console.log('none so end result');
+        }
+        else{
+          textToDisplay = textToDisplay.slice(0,-1);
+        }
+      }
+      else if(text) {
+        textToDisplay +=  text;
+      }
+      document.querySelector('.display-ontype').innerHTML = textToDisplay;
+    }
+  </script>
+</body>
+</html>

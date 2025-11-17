@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Exercises</title>
+</head>
+<body>
+  <input type="text" name="myName" class="myName" onkeydown="
+    displayName(event)">
+  <button>Submit</button>
+
+  <p class="display-name"></p>
+
+  <script>
+    function displayName(event) {
+      const keyEvent = event.key;
+      const name = document.querySelector('.myName').value;
+
+      if(keyEvent === 'Enter') {
+        document.querySelector('.display-name').innerHTML = `Your name is ${name}.`;
+      }
+    }
+  </script>
+</body>
+</html>

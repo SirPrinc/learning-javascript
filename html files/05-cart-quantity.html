@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cart Quantity</title>
 </head>
-<body>
+<body onload="document.querySelector('.quantity-display').innerHTML = `Cart quantity: ${cart_quantity}`;">
   <button onclick="
-    console.log(`Cart Quantity: ${cart_quantity}`);
+      document.querySelector('.quantity-display').innerHTML = `Cart quantity: ${cart_quantity}`;
     ">Show Quantity</button>
   
   <button onclick="
@@ -36,27 +36,35 @@
 
   <button onclick="
     cart_quantity = 0;
-    console.log('Cart was reset.');
-    console.log(`Cart Quantity: ${cart_quantity}`);
+    localStorage.removeItem('cartQuantity');
+    document.querySelector('.quantity-display').innerHTML = `Cart quantity: ${cart_quantity}`;
   ">Reset Cart</button>
+
+  <p class="quantity-display"></p>
+  <p class="not-enough" style="color: red;"></p>
   
 
   <script>
-    let cart_quantity = 0;
+    let cart_quantity = localStorage.getItem('cartQuantity') || {cart_quantity:  ''};
 
     function updateCartQuantity(value) {
       if(cart_quantity + value > 10) {
-        alert('The cart is full.');
+        document.querySelector('.not-enough').innerHTML = 'Cart is full!'
         return;
       }
       else if(cart_quantity + value < 0) {
-        alert('Not enough items in the cart.');
+        document.querySelector('.not-enough').innerHTML = 'Not enough items in the cart.'
         return;
       }
       else {
         cart_quantity += value;
-        console.log(`Cart quantity: ${cart_quantity}`)
+        document.querySelector('.not-enough').innerHTML = ''; 
+
       }
+
+      localStorage.setItem('cartQuantity', cart_quantity)
+
+      document.querySelector('.quantity-display').innerHTML = `Cart quantity: ${cart_quantity}`;
     }
 
   </script>
