@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List Final Project</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+  <p>Todo List</p>
+
+  <div>
+    <input type="text" name="todo" class="input-contianer todo-item">
+    <input type="date" name="todo" class="input-contianer todo-date">
+    <button onclick="addToDo();" class="add-button">Add</button>
+  </div>
+
+  <div class="container-todo list-of-todos">
+
+  </div>
+  <script>
+    let myToDos = {
+      toDoItem: [],
+      toDoDate: []
+    };
+
+    function addToDo() {
+      toDoitem = document.querySelector('.todo-item').value;
+      toDodate = document.querySelector('.todo-date').value;
+      
+      myToDos.toDoItem.push(toDoitem);
+      myToDos.toDoDate.push(toDodate);
+
+      // console.log(myToDos);
+      let html = '';
+
+      for (let i = 0; i < myToDos.toDoItem.length; i++) {
+        const item = myToDos.toDoItem[i];
+        const date = myToDos.toDoDate[i];
+        html += `
+          <p>${item} ${date}
+
+            <button onclick="
+              myToDos.toDoItem.splice(${i}, 1);
+            ">
+              Delete
+            </button> 
+          </p>`;
+      }
+
+      // console.log(html);
+
+      document.querySelector('.list-of-todos').innerHTML = html;
+    }
+    
+  </script>
+</body>
+</html>
