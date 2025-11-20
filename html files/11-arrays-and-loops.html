@@ -17,14 +17,20 @@
       const anItem = document.querySelector('.my-todo-items').value;
 
       toDoItems.push(anItem);
-      
+
       let toDoList = '';
 
-      for (let index = 0; index < toDoItems.length; index++) {
+      toDoItems.forEach((value, index) => {
         const element = toDoItems[index];
         const html = `<p>${element}</p>`;
         toDoList += html;
-      }
+      })
+
+      // for (let index = 0; index < toDoItems.length; index++) {
+      //   const element = toDoItems[index];
+      //   const html = `<p>${element}</p>`;
+      //   toDoList += html;
+      // }
       document.querySelector('.container-todo-list').innerHTML = toDoList;
     }
   </script>

@@ -6,9 +6,77 @@
   <title>Advanced Functions</title>
 </head>
 <body>
+
+  <button onclick="" class="js-button">Click</button>
   
   <script>
-    
+    const buttonElement = document.querySelector('.js-button');
+
+    const eventListener = () => {
+      console.log("Click");
+    }
+
+    buttonElement.addEventListener('click',eventListener);
+
+    buttonElement.removeEventListener('click',eventListener);
+
+    buttonElement.addEventListener('click',() => {
+      console.log("Click2");
+    });
+
+
+    // function display(param) {
+    //   console.log(param);
+    // }
+
+    // display(2);
+
+    // setTimeout(function () {
+    //   console.log('Time Out');
+    // }, 3000);
+
+
+    // console.log('next line');
+
+    // setInterval(function() {
+    //   console.log('Interval');
+    // }, 3000);
+
+    // console.log('next line 2');
+
+    // [
+    //   'make dinner',
+    //   'wash dishes',
+    //   'watch youtube'
+    // ].forEach(function(value, index){
+    //     console.log(`${value} - ${index}`);
+    // });
+
+    // const arrowFunction = () => {
+    //   console.log('hello');
+    // };
+
+    // // if an arrow function has 1 parameter the 
+    // // brackets are not necessary
+    // const oneParam = (param) => {
+    //   console.log(param + 1);
+    // }
+
+    // const oneLine = () => 2 + 3;
+
+    // oneLine();
+
+    // const object2 = {
+    //   method() {
+    //     console.log('lmao');
+    //   }
+    // }
+
+    // object2.method();
+
+
+
+
   </script>
 </body>
 </html>

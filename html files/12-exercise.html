@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12 Exercise</title>
+  <style>
+    .display-message {
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <!-- <button onclick="runFunction();" class="to-change">Add to Cart.</button>
+  <p class="display-message item-added"></p> -->
+
+  <button onclick="addMessage();">Add</button>
+  <button onclick="removeMessage();">Remove</button>
+  <script>
+    // add = function(a,b) {
+    //   console.log(`${a} + ${b} = ${a+b}`);
+    // }
+
+    // add(2,3);
+
+    // function runFunction() {
+    //   setTimeout(function() {
+    //     document.querySelector('.to-change').innerHTML = 'Loading....';
+    //   }, 2000);
+    //   setTimeout(function() {
+    //     document.querySelector('.to-change').innerHTML = 'Finished!';
+    //   }, 4000);
+    // }
+
+    // let timeoutId;
+
+    // function runFunction() {
+    //   const messageElement = document.querySelector('.item-added');
+    //   messageElement.innerHTML = 'Added';
+
+    //   clearTimeout(timeoutId);
+
+    //   timeoutId = setTimeout(function() {
+    //     messageElement.innerHTML = '';
+    //   }, 2000);
+
+    // }
+
+    // setInterval(function() {
+    //   if(document.title === '12 Exercise') {
+    //     document.title = '(1) message';
+    //   }
+    //   else {
+    //     document.title = '12 Exercise';
+    //   }
+    // }, 1000);
+
+    let messageNum = 0;
+
+    function addMessage() {
+      messageNum++;
+      console.log(messageNum);
+    }
+
+    function removeMessage() {
+      if(messageNum <= 0) {
+        alert('This is less than 0');
+      }
+      else {
+        messageNum--;
+        console.log(messageNum);
+      }
+      
+    }
+
+    setInterval(function() {
+      if(document.title === '12 Exercise') {
+        document.title = `(${messageNum}) messages`;
+      }
+      else {
+        document.title = '12 Exercise';
+      }
+    }, 1000);
+
+
+  </script>
+</body>
+</html>
